@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layang ODDS - OpenDDS Simulator</title>
+    <meta
+      name="description"
+      content="Layang ODDS is a  OpenDDS simulator for topic discovery, DDS publish and subscribe, IDL upload, scenario streaming, and per-topic QoS editing."
+    />
+    <meta property="og:title" content="Layang ODDS" />
+    <meta
+      property="og:description"
+      content="OpenDDS desktop simulator for scanning topics, uploading IDL, publishing DDS samples, running scenario loops, and editing QoS."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/layang-app-screenshot.png" />
+    <link rel="icon" href="assets/layang-logo.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="Layang ODDS home">
+          <img src="assets/layang-logo.png" alt="Layang ODDS logo" />
+          <span>Layang ODDS</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#features">Features</a>
+          <a href="#download">Download</a>
+          <a href="#opendds-env">OpenDDS Env</a>
+          <a href="#discovery">Discovery</a>
+          <a href="#idl">IDL</a>
+          <a href="#support">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn ghost" href="https://github.com/flik-lab/layang-odds/tree/main/docs">Docs</a>
+          <a
+            class="btn star-btn"
+            href="https://github.com/flik-lab/layang-odds"
+            aria-label="Open GitHub repository"
+          >
+            <span class="star-icon">★</span>
+            <span>GitHub</span>
+            <span class="star-count" data-github-stars>—</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero hero-centered">
+        <div class="container hero-stack">
+          <div class="announcement"><span class="announcement-dot"></span> OpenDDS simulator</div>
+          <h1>Discover topics, upload IDL, publish samples, and run DDS scenarios.</h1>
+          <p class="hero-lead">
+            Layang ODDS brings the main DDS workflow into one desktop app: scan topics from the network,
+            subscribe with DDS Listener or Dynamic mode, publish JSON samples, stream scenario arrays, and
+            tune QoS per topic.
+          </p>
+          <div class="hero-actions centered-actions">
+            <a class="btn primary large" href="https://github.com/flik-lab/layang-odds/releases/latest">Download release</a>
+            <a class="btn large" href="#opendds-env">Set OpenDDS env</a>
+            <a class="btn large" href="https://github.com/flik-lab/layang-odds#readme">Open README</a>
+          </div>
+          <div class="install-strip" aria-label="Quick start command">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <code>Latest release · OpenDDS environment setup · Source access by request</code>
+          </div>
+
+          <div class="hero-product-wrap hero-product-wrap-clean">
+            <div class="product-glow"></div>
+            <figure class="product-shot product-shot-main">
+              <div class="shot-toolbar">
+                <span class="traffic"></span>
+                <span class="traffic"></span>
+                <span class="traffic"></span>
+                <span>Layang ODDS</span>
+              </div>
+              <img
+                src="assets/layang-app-screenshot.png"
+                alt="Layang ODDS publish subscribe and stream screen"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="download">
+        <div class="container">
+          <div class="final-card">
+            <div>
+              <div class="eyebrow"><span class="dot"></span> Download</div>
+              <h2>Download the latest Layang ODDS release.</h2>
+              <p>
+                Get release notes and available artifacts from GitHub Releases. If an RPM package is attached,
+                install it with <code>sudo dnf install ./layang-odds-*.rpm</code>.
+              </p>
+            </div>
+            <div class="final-actions">
+              <a class="btn primary" href="https://github.com/flik-lab/layang-odds/releases/latest">Latest Release</a>
+              <a class="btn" href="docs/download-release.md">Install Notes</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="opendds-env">
+        <div class="container feature-showcase">
+          <div class="feature-copy">
+            <div class="eyebrow"><span class="dot"></span> OpenDDS Environment</div>
+            <h2>Configure OpenDDS from an env file.</h2>
+            <p class="section-copy">
+              Use <code>~/.config/layang-odds/env</code> for normal user setup, or
+              <code>/etc/layang-odds/layang-odds.env</code> for system-wide setup.
+              Restart the app after editing the env file.
+            </p>
+            <div class="check-list">
+              <span>User config</span>
+              <span>System-wide config</span>
+              <span>No manual export</span>
+              <span>DDS Runtime Build check</span>
+            </div>
+          </div>
+          <div class="media-card product-shot">
+            <pre class="code-block mini"><code># Option 1: user config
+mkdir -p ~/.config/layang-odds
+nano ~/.config/layang-odds/env
+
+# Option 2: system-wide config
+sudo mkdir -p /etc/layang-odds
+sudo nano /etc/layang-odds/layang-odds.env
+
+OPENDDS_ROOT=/opt/OpenDDS-3.29.1
+LAYANG_ODDS_DDS_CONFIG=$HOME/.config/layang-odds/rtps.ini</code></pre>
+            <figcaption>
+              The packaged app launcher reads env files automatically on startup.
+            </figcaption>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="features">
+        <div class="container">
+          <div class="split-heading compact-heading">
+            <div>
+              <div class="eyebrow"><span class="dot"></span> Workflow</div>
+              <h2>Built for day-to-day DDS simulation and verification.</h2>
+            </div>
+            <p>
+              The page focuses on the current ODDS workflow: discovery, subscription, publishing, IDL upload,
+              scenarios, and QoS.
+            </p>
+          </div>
+          <div class="workflow-steps feature-columns feature-columns-polished">
+            <article>
+              <span>01</span>
+              <strong>Discover</strong>
+              <p>Scan DDS topics from the network and open them as topic tabs.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>Subscribe</strong>
+              <p>
+                Use DDS Listener or Dynamic mode and inspect latest samples, raw data, events, and runtime
+                logs.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>Publish</strong>
+              <p>Edit JSON payloads, publish once, or run a continuous stream from a scenario.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <strong>Configure</strong>
+              <p>Upload IDL, map DDS types, and tune topic QoS before testing the wire flow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="discovery">
+        <div class="container feature-showcase">
+          <div class="feature-copy">
+            <div class="eyebrow"><span class="dot"></span> Publish and subscribe</div>
+            <h2>Scan DDS topics and work with live samples.</h2>
+            <p class="section-copy">
+              The Discovery panel lets operators scan topics from the network, select a topic, choose DDS
+              Listener or Dynamic mode, publish JSON samples, start or stop streams, and watch the latest
+              response in the same screen.
+            </p>
+            <div class="check-list">
+              <span>Network topic scan</span>
+              <span>DDS Listener mode</span>
+              <span>Dynamic mode</span>
+              <span>Latest response viewer</span>
+            </div>
+          </div>
+          <figure class="media-card product-shot media-screenshot">
+            <img src="assets/feature-live-dds.png" alt="Layang ODDS live DDS publish subscribe screenshot" />
+            <figcaption>
+              Topic tab with publish, stream, subscribe mode selection, and latest DDS response.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section alt" id="idl">
+        <div class="container feature-showcase reverse">
+          <div class="feature-copy">
+            <div class="eyebrow"><span class="dot"></span> IDL workspace</div>
+            <h2>Upload IDL and create DDS topic mappings.</h2>
+            <p class="section-copy">
+              Imported IDL files stay visible in the workspace. ODDS lists the discovered DDS topic types,
+              keeps the original source readable, and lets operators create topic tabs from those types.
+            </p>
+            <div class="check-list">
+              <span>Add IDL file</span>
+              <span>Browse imported IDL</span>
+              <span>Inspect source text</span>
+              <span>Create topic from type</span>
+            </div>
+          </div>
+          <figure class="media-card product-shot media-screenshot">
+            <img src="assets/feature-idl-upload.png" alt="Layang ODDS IDL upload and mapping screenshot" />
+            <figcaption>ID files and discovered DDS topic types are managed from the IDL panel.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="scenario">
+        <div class="container feature-showcase">
+          <div class="feature-copy">
+            <div class="eyebrow"><span class="dot"></span> Scenario stream</div>
+            <h2>Build scenarios with ordered JSON arrays and loops.</h2>
+            <p class="section-copy">
+              Scenario definitions can hold a sequence of DDS payloads. The stream runner publishes each
+              sample in order and can loop the array continuously for repeatable simulations.
+            </p>
+            <div class="check-list">
+              <span>New or imported scenario</span>
+              <span>Ordered sample array</span>
+              <span>Loop publishing</span>
+              <span>Interval control</span>
+            </div>
+          </div>
+          <figure class="media-card product-shot media-screenshot">
+            <img
+              src="assets/feature-scenario-loop.png"
+              alt="Layang ODDS scenario stream array loop screenshot"
+            />
+            <figcaption>Scenario stream editor with JSON sequence array and running status.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section alt" id="qos">
+        <div class="container feature-showcase reverse">
+          <div class="feature-copy">
+            <div class="eyebrow"><span class="dot"></span> QoS editor</div>
+            <h2>Fine-tune QoS per topic before testing.</h2>
+            <p class="section-copy">
+              The QoS tab exposes the active profile for a topic, including reliability, durability, history,
+              depth, deadline, liveliness, lease duration, lifespan, partition, and ownership settings.
+            </p>
+            <div class="check-list">
+              <span>Reliability and durability</span>
+              <span>History and depth</span>
+              <span>Deadline and latency</span>
+              <span>Save or reset profile</span>
+            </div>
+          </div>
+          <figure class="media-card product-shot media-screenshot">
+            <img src="assets/feature-qos-editor.png" alt="Layang ODDS QoS editor screenshot" />
+            <figcaption>
+              Per-topic QoS editor with active profile summary and reset/default actions.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section alt" id="support">
+        <div class="container">
+          <div class="final-card">
+            <div>
+              <div class="eyebrow"><span class="dot"></span> Support</div>
+              <h2>Need help or want to collaborate?</h2>
+              <p>Report issues, request features, discuss collaboration, or ask for source access.</p>
+            </div>
+            <div class="final-actions">
+              <a class="btn primary" href="https://github.com/flik-lab/layang-odds/issues">GitHub Issues</a>
+              <a class="btn" href="mailto:fliklabdev@gmail.com">Contact Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="assets/layang-logo.png" alt="Layang ODDS logo" />
+          <p>Layang ODDS · OpenDDS simulator</p>
+        </div>
+        <div class="footer-links">
+          <a href="#download">Download</a>
+          <a href="#opendds-env">OpenDDS Env</a>
+          <a href="#discovery">Discovery</a>
+          <a href="#idl">IDL</a>
+          <a href="#support">Support</a>
+          <a href="https://github.com/flik-lab/layang-odds">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>
